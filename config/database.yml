@@ -9,12 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: MyBlog-Development
+  database: Blogs-Development
 
 test:
   <<: *default
-  database: MyBlog-Test
+  database: Blogs-Test
 
 production:
   <<: *default
-  database: MyBlog-Production
+  database: Blogs-Production
