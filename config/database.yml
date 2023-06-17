@@ -15,12 +15,12 @@ default: &default
 
 development:
   <<: *default
-  database: Lanzz-Blog-Development
+  database: Blogs-Development
 
   test:
   <<: *default
-  database: Lanzz-Blog-Test
+  database: Blogs-Test
 
 production:
   <<: *default
-  database: Lanzz-Blog-Production
+  database: Blogs-Production
