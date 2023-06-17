@@ -1,25 +1,58 @@
 require 'rails_helper'
-
-RSpec.describe Post, type: :model do
-  subject do
-    Post.new(author_id: 1, title: 'First Post', text: 'This is my first post', comments_counter: 1, likes_counter: 10)
+describe Post do
+  before(:all) do
+    @user = User.create(name: 'name', posts_counter: 0)
+    @post = Post.create(title: 'title', text: 'text', author_id: @user.id, comments_counter: 0, likes_counter: 0)
   end
 
-  before { subject.save }
+  it 'should title be present' do
+    @post.title = nil
+    expect(@post).to_not be_valid
+  end
 
-  it 'should expect the title attribute to be present' do
-    expect(subject.title).to be_present
+  it 'should comments_counter be present' do
+    @post.comments_counter = nil
+    expect(@post).to_not be_valid
   end
-  it 'should expect the title length not to exceed 250 characters' do
-    expect(subject.title.length).to_not be > 250
+
+  it 'should comments_counter be integer' do
+    @post.comments_counter = 'string'
+    expect(@post).to_not be_valid
   end
-  it 'should expect the comments counter to be greater than or equal to 0' do
-    expect(subject.comments_counter).to be >= 0
+
+  it 'should comments_counter be greater than or equal to 0' do
+    @post.comments_counter = -1
+    expect(@post).to_not be_valid
   end
-  it 'should expect the likes counter to be greater than or equal to 0' do
-    expect(subject.likes_counter).to be >= 0
+
+  it 'should likes_counter be present' do
+    @post.likes_counter = nil
+    expect(@post).to_not be_valid
   end
-  it 'should expect a user recent comments to return only three posts' do
-    expect(subject.recent_comments.length).to be <= 5
+
+  it 'should likes_counter be integer' do
+    @post.likes_counter = 'string'
+    expect(@post).to_not be_valid
+  end
+
+  it 'should likes_counter be greater than or equal to 0' do
+    @post.likes_counter = -1
+    expect(@post).to_not be_valid
+  end
+
+  describe '#update_post_counter' do
+    it 'should update the user posts_counter' do
+      @post.update_post_counter
+      expect(@user.posts_counter).to eq(1)
+    end
+  end
+
+  describe '#recent_comments' do
+    it 'should return 5 comments' do
+      10.times do
+        Comment.create(text: 'text', author_id: @user.id, post_id: @post.id)
+      end
+      expect(@post.recent_comments.count).to eq(5)
+    end
   end
 end

@@ -1,17 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Lanzz', photo: 'photo image', bio: 'A pretty good software developer', posts_counter: 0) }
-
-  before { subject.save }
-
-  it 'should expect the name attribute to be present' do
-    expect(subject.name).to be_present
+  before(:all) do
+    @user = User.create(name: 'John Doe', posts_counter: 0)
+    @post = Post.create(author: @user, title: 'Hello', text: 'This is my first post', comments_counter: 0,likes_counter: 0)
   end
-  it 'should expect the post counter to be greater than or equal to 0' do
-    expect(subject.posts_counter).to be >= 0
+
+  it 'name should be present' do
+    @user.name = nil
+    expect(@user).to_not be_valid
   end
-  it 'should expect a user recent post to return only three posts' do
-    expect(subject.recent_posts.length).to be <= 3
+
+  it 'posts_counter should be an integer greater than or equal to zero' do
+    @user.posts_counter = -1
+    expect(@user).to_not be_valid
+  end
+
+  it '#recent_posts should return the three most recent posts' do
+    4.times do
+      Post.create(author: @user, title: 'Hello', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
+    end
+    expect(@user.recent_posts.count).to eq(3)
   end
 end
