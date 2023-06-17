@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before(:all) do
     @user = User.create(name: 'John Doe', posts_counter: 0)
-    @post = Post.create(author: @user, title: 'Hello', text: 'This is my first post', comments_counter: 0,likes_counter: 0)
+    @post = Post.create(author: @user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                        likes_counter: 0)
   end
 
   it 'name should be present' do
