@@ -1,67 +1,70 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    color: #333;
-    text-decoration: none;
+  color: #333;
+  text-decoration: none;
 }
 
 body {
-    padding: 3rem 5rem;
+  padding: 3rem 5rem;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
+
 .col {
-    flex-direction: column;
-    gap: 2rem;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .photo {
-    width: 10rem;
-    height: 10rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 .border {
-    border: solid #333 2px;
+  border: solid #333 2px;
 }
 
 .user {
-    gap: 4rem;
+  gap: 4rem;
 }
 
 .align {
-    align-items: center;
+  align-items: center;
 }
 
 .users-info {
-    width: 70%;
+  width: 70%;
 }
 
 .to-left {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .padding-2 {
- padding: 0rem 2rem;
+  padding: 0 2rem;
 }
 
 .margin-top {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
+
 .margin-bottom {
   margin-bottom: 1rem;
 }
+
 .max-width {
-    width: calc(70% + 14rem);
+  width: calc(70% + 14rem);
 }
 
 .bio {
@@ -71,18 +74,19 @@ body {
 }
 
 .post {
-    height: 7rem;
-   justify-content: space-between;
-    padding: 0.5rem;
+  height: 7rem;
+  justify-content: space-between;
+  padding: 0.5rem;
 }
 
 .all-posts {
-    width: 8rem;
-    margin-left: 35%;
-    justify-content: center;
+  width: 8rem;
+  margin-left: 35%;
+  justify-content: center;
 }
+
 .comments-container {
-    height: 7rem;
-    overflow: auto;
-    margin: 0.2rem 0 2rem 0;
+  height: 7rem;
+  overflow: auto;
+  margin: 0.2rem 0 2rem 0;
 }
