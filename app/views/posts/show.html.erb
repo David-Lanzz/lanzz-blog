@@ -7,16 +7,20 @@
 </head>
 <body>
    <div class='user-info'>
+  <section class='post max-width flex col border'>
+     <div class="flex">
+  <p>Post #<%= @post.id %> by <%=  %></p>
+  <div class="to-left flex">
+            <p>comments: <%= @post.comments_counter %>,</p>
+            <p>likes: <%= @post.likes_counter %></p>
+        </div>
+        </div>
+     <div>
+        <p><%=@post.text %></p>
+  </div>
+        </section>
   <section>
-    <h4>Post #<%= @post.id %> by <%= @user %></h4>
-    <div>
-      <p>Comments: <%= @post.comments_counter %></p>
-      <p>Likes: <%= @post.likes_counter %></p>
-    </div>
-  </section>
-  <section>
-    <div><%= @post.text %></div>
-    <div>
+    <div class="border max-width comments-container">
       <% @post.comments.each do |comment| %>
        <% @users.each do |user| %>
         <% if comment.author_id == user.id %>

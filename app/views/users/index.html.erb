@@ -10,16 +10,15 @@
     <h1>There are currently no users in the database</h1>
     <% else %>
     <main>
-    <p>Users display here</p>
-    <ul>
+    <ul class="flex col gap-2">
     <% @users.each do |user| %>
-      <a href= "users/<%= user.id %>" class='user'>
-        <div class='photo'>
+      <a href= "users/<%= user.id %>" class='user flex'>
+        <div class='photo border'>
             <%= image_tag (user.photo)%>
         </div>
-        <div class='user-info'>
-             <h2><%= user.name %></h2>
-             <p>Number of Posts: <%= user.posts_counter %></p>
+        <div class='user-info flex border users-info align padding-2'>
+             <h1><%= user.name %></h1>
+             <p class="to-left margin-top">Number of Posts: <%= user.posts_counter %></p>
         </div>
       </a>
     <%end%>
