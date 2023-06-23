@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Posts display here</p>
+   <div class='user-info'>
+  <section>
+    <h4>Post #<%= @post.id %> by <%= @user %></h4>
+    <div>
+      <p>Comments: <%= @post.comments_counter %></p>
+      <p>Likes: <%= @post.likes_counter %></p>
+    </div>
+  </section>
+  <section>
+    <div><%= @post.text %></div>
+    <div>
+      <% @post.comments.each do |comment| %>
+       <% @users.each do |user| %>
+        <% if comment.author_id == user.id %>
+        <%= user.name %>:<%= comment.text %> <br>
+        <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+</div>
+
 </body>
 </html>

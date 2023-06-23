@@ -9,12 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: Blogs-Development
+  database: Lanzz-Blog-1
 
 test:
   <<: *default
-  database: Blogs-Test
+  database: Lanzz-Blog-2
 
 production:
   <<: *default
-  database: Blogs-Production
+  database: Lanzz-Blog-3

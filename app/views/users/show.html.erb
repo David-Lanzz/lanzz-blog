@@ -7,5 +7,38 @@
 </head>
 <body>
     <p>Users display here</p>
+    <ul>
+    <li class='user'>
+        <div class='photo'>
+            <%= image_tag (@user.photo)%>
+        </div>
+        <div class='user-info'>
+             <h2><%= @user.name %></h2>
+             <p>Number of Posts: <%= @user.posts_counter %></p>
+        </div>
+    </li>
+    <li>
+        <p>Bio</p>
+        <p><%= @user.bio %></p>
+    </li>
+    <li>
+        <% @user.recent_posts.each do |post|%>
+        <ul class='posts'>
+<%= link_to user_post_path(@user, post) do %>
+     <div>
+  <p>Post #<%=post.id %></p>
+        </div>
+        <div>
+  <p><%=post.text %></p>
+        </div>
+        <div>
+  <p><%=post.comments_counter %></p>
+  <p><%=post.likes_counter %></p>
+        </div>
+<% end %>
+        </ul>
+        <%end%>
+    </li>
+    </ul>
 </body>
 </html>

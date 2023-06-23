@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if @users.empty? %>
+    <h1>There are currently no users in the database</h1>
+    <% else %>
+    <main>
+    <p>Users display here</p>
+    <ul>
+    <% @users.each do |user| %>
+      <a href= "users/<%= user.id %>" class='user'>
+        <div class='photo'>
+            <%= image_tag (user.photo)%>
+        </div>
+        <div class='user-info'>
+             <h2><%= user.name %></h2>
+             <p>Number of Posts: <%= user.posts_counter %></p>
+        </div>
+      </a>
+    <%end%>
+    </ul>
+    </main>
+    <% end %>
+</body>
+</html>
