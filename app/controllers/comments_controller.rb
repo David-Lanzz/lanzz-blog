@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.author_id = current_user.id
 
     if @comment.save
-      redirect_to user_comments_path(user_id: current_user.id)
+      redirect_to user_post_path(user_id: current_user.id, id: @post.id)
     else
       flash[:error] = @comment.errors.full_messages.join(', ')
       render :new

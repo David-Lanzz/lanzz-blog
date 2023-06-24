@@ -12,7 +12,7 @@
       <main>
         <ul class="flex col gap-2">
           <% @users.each do |user| %>
-            <a href= "<%= user.id %>" class='user flex'>
+            <a href= "users/<%= user.id %>" class='user flex'>
               <div class='photo border'>
                 <%= image_tag (user.photo)%>
               </div>
