@@ -1,6 +1,6 @@
 class Like < ApplicationRecord
   belongs_to :post
-  belongs_to :user
+  belongs_to :user, foreign_key: 'author_id'
 
   after_create :update_likes_counter
 

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%= form_with model: @comment, url: user_post_comments_path(user_id: current_user.id, post_id: @post.id), method: :post do |f| %>
+  <div>
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+  </div>
+  <%= f.submit 'Add Comment' %>
+<% end %>
+</body>
+</html>
