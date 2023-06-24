@@ -1,52 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <ul class="flex col gap-2 text-align">
-    <li class='user flex'>
-       <div class='photo border'>
-            <%= image_tag (@user.photo)%>
+      <li class='user flex'>
+        <div class='photo border'>
+          <%= image_tag (@user.photo)%>
         </div>
         <div class='user-info flex border users-info align padding-2'>
-             <h2><%= @user.name %></h2>
-             <p class="to-left margin-top">Number of Posts: <%= @user.posts_counter %></class=>
+          <h2><%= @user.name %></h2>
+          <p class="to-left margin-top">Number of Posts: <%= @user.posts_counter %></class=>
         </div>
-    </li>
-
-        <% @posts.each do |post| %>
-          <li>
-            <% @users.each do |user| %>
-              <% if post.author_id == user.id %>
-             <section class='post max-width flex col border'>
-     <div>
-  <p>Post #<%=post.id %></p>
-        </div>
-     <div class="flex">
-        <p><%=post.text %></p>
-        <div class="to-left flex">
-            <p>comments: <%=post.comments_counter %>,</p>
-            <p>likes: <%=post.likes_counter %></p>
-        </div>
-  </div>
-        </section>
-        <div class="border max-width comments-container">
-    <% post.recent_comments.each do |comment| %>
-        <% if comment.author_id == user.id %>
-
-        <%= user.name %>:<%= comment.text %> <br>
+      </li>
+      <% @posts.each do |post| %>
+        <li>
+          <% @users.each do |user| %>
+            <% unless post.author_id != user.id %>
+              <section class='post max-width flex col border'>
+                <div>
+                  <p>Post #<%=post.id %></p>
+                </div>
+                <div class="flex">
+                  <p><%=post.text %></p>
+                  <div class="to-left flex">
+                    <p>comments: <%=post.comments_counter %>,</p>
+                    <p>likes: <%=post.likes_counter %></p>
+                  </div>
+                </div>
+              </section>
+              <div class="border max-width comments-container">
+                <% post.recent_comments.each do |comment| %>
+                  <% unless comment.author_id != user.id %>
+                    <%= user.name %>:<%= comment.text %> <br>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-      </div>
-                 </div>
-              <% end %>
-            <% end %>
-          </li>
-        <% end %>
-        <a class="border all-posts flex" href="">pagination</a>
-    </ul>
+      </li>
+    <% end %>
+    <a class="border all-posts flex" href="">pagination</a>
+  </ul>
 </body>
 </html>

@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-   <div class='user-info'>
-  <section class='post max-width flex col border'>
-     <div class="flex">
-  <p>Post #<%= @post.id %> by <%=  %></p>
-  <div class="to-left flex">
+  </head>
+  <body>
+    <div class='user-info'>
+      <section class='post max-width flex col border'>
+        <div class="flex">
+          <p>Post #<%= @post.id %> by <%=  %></p>
+          <div class="to-left flex">
             <p>comments: <%= @post.comments_counter %>,</p>
             <p>likes: <%= @post.likes_counter %></p>
+          </div>
         </div>
+        <div>
+          <p><%=@post.text %></p>
         </div>
-     <div>
-        <p><%=@post.text %></p>
-  </div>
-        </section>
-  <section>
-    <div class="border max-width comments-container">
-      <% @post.comments.each do |comment| %>
-       <% @users.each do |user| %>
-        <% if comment.author_id == user.id %>
-        <%= user.name %>:<%= comment.text %> <br>
-        <% end %>
-        <% end %>
-      <% end %>
+      </section>
+      <section>
+        <div class="border max-width comments-container">
+          <% @post.comments.each do |comment| %>
+            <% @users.each do |user| %>
+              <%unless comment.author_id != user.id %>
+                <%= user.name %>:<%= comment.text %> <br>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </section>
     </div>
-  </section>
-</div>
-
-</body>
+  </body>
 </html>
