@@ -29,6 +29,10 @@
             <% end %>
           <% end %>
         </div>
+          <%= button_to user_post_likes_path(@user, @post), method: :post, class: "like-btn" do %>
+            Like <%= @post.likes.count %>
+          <% end %>
+        <a class="border all-posts flex" href="<%= new_user_post_comment_path(@user, @post) %>">Add New Comment</a>
       </section>
     </div>
   </body>
