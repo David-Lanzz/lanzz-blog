@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
     @user = @post.author.name
-    @userId = @post.author.id
+    @user_id = @post.author.id
     @users = User.all
   end
 
