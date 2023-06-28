@@ -57,9 +57,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Add books, musics and games**
+- **Add books, music and games**
 - **List all books, music and games**
-- **All data preserved in json file**
+- **All data preserved in JSON file**
 - **Schema file with tables of the classes in the app**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -100,7 +100,11 @@ stylelint
 
 ## 👥 Authors <a name="authors"></a>
 
+👤 **Santosh Konappanavar**
 
+- GitHub: [@Santosh-Konappanavar](https://github.com/Santosh-Konappanavar)
+- Twitter: [@SantoshKonapp1](https://twitter.com/SantoshKonappa1)
+- LinkedIn: [@Santosh Konappanavar](https://www.linkedin.com/in/santosh-konappanavar/)
 
 
 👤 **David-Lanzz**
