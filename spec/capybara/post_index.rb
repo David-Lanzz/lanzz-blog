@@ -8,7 +8,6 @@ RSpec.feature 'Users Show' do
   Comment.create(text: 'I am Lanzz', author_id: user1.id, post_id: post2.id)
   Comment.create(text: 'I am Lanzz', author_id: user1.id, post_id: post2.id)
 
-
   scenario "I can see the user's picture" do
     visit user_posts_path(user1)
     expect(page).to have_selector('.photo')
