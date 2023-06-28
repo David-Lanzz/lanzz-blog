@@ -9,7 +9,7 @@
     <div class='user-info'>
       <section class='post max-width flex col border'>
         <div class="flex">
-          <p>Post #<%= @post.id %> by <%=  %></p>
+          <p>Post #<%= @post.id %> by <%= @user %></p>
           <div class="to-left flex">
             <p>comments: <%= @post.comments_counter %>,</p>
             <p>likes: <%= @post.likes_counter %></p>

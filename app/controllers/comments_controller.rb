@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
-    @post = Post.find(params[:post_id])
+    @post = Post.includes(users: :posts).find(params[:id])
   end
 
   def create
