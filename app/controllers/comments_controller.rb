@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.author_id = current_user.id
+    @comment.author = current_user.name
 
     if @comment.save
       redirect_to user_post_path(user_id: current_user.id, id: @post.id)

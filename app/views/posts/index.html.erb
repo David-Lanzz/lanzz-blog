@@ -26,7 +26,7 @@
             <% unless post.author_id != user.id %>
               <section class='post max-width flex col border'>
                 <div>
-                  <p>Post #<%=post.id %></p>
+                  <a id="link">Post #<%=post.id %></a>
                 </div>
                 <div class="flex">
                   <p><%=post.text %></p>

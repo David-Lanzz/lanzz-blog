@@ -24,6 +24,7 @@
           <% @post.comments.each do |comment| %>
             <% @users.each do |user| %>
               <%unless comment.author_id != user.id %>
+              <p><= @comment.author></p>
                 <%= user.name %>:<%= comment.text %> <br>
               <% end %>
             <% end %>

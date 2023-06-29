@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Users Show' do
-  user1 = User.create(name: 'Pamela', bio: 'A software developer')
-  Post.create(title: 'title', text: 'text', author_id: user1.id, comments_counter: 0, likes_counter: 0)
-  Post.create(title: 'title', text: 'text', author_id: user1.id, comments_counter: 0, likes_counter: 0)
-  Post.create(title: 'title', text: 'text', author_id: user1.id, comments_counter: 0, likes_counter: 0)
-  Post.create(title: 'title', text: 'text', author_id: user1.id, comments_counter: 0, likes_counter: 0)
+  user1 = User.create(name: 'Pamela', bio: 'A software developer', photo: '')
   Post.create(title: 'title', text: 'text', author_id: user1.id, comments_counter: 0, likes_counter: 0)
 
   scenario 'User can see the usernames of other users' do
@@ -33,11 +29,10 @@ RSpec.feature 'Users Show' do
     expect(page).to have_selector('.post', maximum: 3)
   end
 
-  # scenario "When I click on a user's post, I am redirected to that post's show page." do
-  #   visit user_path(user1)
-  #    click_link("Post #{post2.id}")
-  #  expect(current_path).to eq(user_post_path(post2))
-  #  end
+  scenario "I can see the user's bio" do
+    visit user_path(user1)
+    expect(page).to have_content(user1.bio)
+  end
 
   scenario "When I click to see all posts, it redirects me to the user's post's index page" do
     visit user_path(user1)
