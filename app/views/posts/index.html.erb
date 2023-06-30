@@ -8,9 +8,13 @@
   <body>
     <ul class="flex col gap-2 text-align">
       <li class='user flex'>
-        <div class='photo border'>
-          <%= image_tag (@user.photo)%>
-        </div>
+      <div class='photo border'>
+      <%= if @user.photo
+    image_tag (@user.photo)
+  else
+    text_field_tag (@user.photo)
+end %>
+    </div>
         <div class='user-info flex border users-info align padding-2'>
           <h2><%= @user.name %></h2>
           <p class="to-left margin-top">Number of Posts: <%= @user.posts_counter %></class=>
@@ -22,7 +26,7 @@
             <% unless post.author_id != user.id %>
               <section class='post max-width flex col border'>
                 <div>
-                  <p>Post #<%=post.id %></p>
+                <a id="link">Post #<%=post.id %></a>
                 </div>
                 <div class="flex">
                   <p><%=post.text %></p>
@@ -44,7 +48,7 @@
         <% end %>
       </li>
     <% end %>
-    <a class="border all-posts flex" href="">pagination</a>
+    <a class="border pagination all-posts flex" href="">pagination</a>
     <a class="border all-posts flex" href="posts/new">Add New Post </a>
   </ul>
 </body>

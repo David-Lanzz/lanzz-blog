@@ -69,6 +69,7 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', require: false
 end
